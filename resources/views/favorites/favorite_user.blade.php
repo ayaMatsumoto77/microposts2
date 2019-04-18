@@ -11,16 +11,15 @@
                     <img class="rounded img-fluid" src="{{ Gravatar::src($user->email, 500) }}" alt="">
                 </div>
             </div>
-            @include('user_follow.follow_button', ['user' => $user])
         </aside>
         <div class="col-sm-8">
-            <ul class="nav nav-tabs nav-justified mb-3">
+            <ul class="nav nav-tabs nav-justified md-3">
                 <li class="nav-item"><a href="{{ route('users.show', ['id' => $user->id]) }}" class="nav-link {{ Request::is('users/' . $user->id) ? 'active' : '' }}">TimeLine <span class="badge badge-secondary">{{ $count_microposts }}</span></a></li>
                 <li class="nav-item"><a href="{{ route('users.followings', ['id' => $user->id]) }}" class="nav-link {{ Request::is('users/*/followings') ? 'active' : '' }}">Followings <span class="badge badge-secondary">{{ $count_followings }}</span></a></li>
                 <li class="nav-item"><a href="{{ route('users.followers', ['id' => $user->id]) }}" class="nav-link {{ Request::is('users/*/followers') ? 'active' : '' }}">Followers <span class="badge badge-secondary">{{ $count_followers }}</span></a></li>
-                <li class="nav-item"><a href="{{ route('favorites.favorite', ['id' => $user->id]) }}" class="nav-link {{ Request::is('favorites/*/favorites') ? 'active' : '' }}">Favorites <span class="badge badge-secondary">{{ $count_favorites }}</span></a></li>
+                <li class="nav-item"><a href="{{ route('users.favorite', ['id' => $micropost->id]) }}" class="nav-link {{ Request::is('users/*/favorites') ? 'active' : '' }}">Favorites <span class="badge badge-secondary">{{ $count_favorites }}</span></a></li>
             </ul>
-            @include('users.users', ['users' => $users])
+            @include('microposts.microposts', ['microposts' => $microposts])
         </div>
-    </div> 
+    </div>
 @endsection
