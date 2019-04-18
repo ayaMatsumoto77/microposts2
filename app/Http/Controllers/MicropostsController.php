@@ -60,4 +60,5 @@ class MicropostsController extends Controller
         
         return view('microposts.favorites_user', $data);
     }
+
 }
