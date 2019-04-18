@@ -37,3 +37,4 @@
     @endforeach
 </ul>
 {{ $microposts->render('pagination::bootstrap-4') }}
+
